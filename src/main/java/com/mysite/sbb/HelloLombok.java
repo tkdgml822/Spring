@@ -16,7 +16,7 @@ public class HelloLombok {
         helloLombok.setLombok(5);
 
         System.out.println(helloLombok.getHello());
-        System.out.println(helloLombo   k.getLombok());
+        System.out.println(helloLombok.getLombok());
     }
 
 }
