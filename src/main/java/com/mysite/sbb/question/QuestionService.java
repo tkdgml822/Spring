@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class QuestionService {
 
-    private final QuestionRepository questionRepository;
+    private final QuestionRepoㅎsitory questionRepository;
 
     public List<Question> getList() {
         return this.questionRepository.findAll();
@@ -60,5 +60,10 @@ public class QuestionService {
 
     public void delete(Question question) {
         this.questionRepository.delete(question);
+    }
+
+    public void vote(Question question, SiteUser siteUser) {
+        question.getVoter().add(siteUser);
+        this.questionRepository.save(question);
     }
 }
