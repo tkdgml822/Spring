@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class QuestionService {
 
-    private final QuestionRepoㅎsitory questionRepository;
+    private final QuestionRepository questionRepository;
 
     public List<Question> getList() {
         return this.questionRepository.findAll();
