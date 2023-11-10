@@ -2,11 +2,13 @@ package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import com.mysite.sbb.answer.Answer;
 
 import com.mysite.sbb.user.SiteUser;
 import jakarta.persistence.*;
+import jakarta.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,4 +36,8 @@ public class Question {
     private SiteUser author;
 
     private LocalDateTime modifyDate;
+
+    // 추천인 중복되면 안된다 set쓴 이유.
+    @ManyToMany
+    Set<SiteUser> voter;
 }
