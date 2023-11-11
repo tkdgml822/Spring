@@ -30,6 +30,7 @@ public class AnswerController {
     private final AnswerService answerService;
     private final UserService userService;
 
+    // 만들어진 개시글의 순서대로 받는다.
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/create/{id}")
     public String createAnswer(Model model, @PathVariable("id") Integer id,
@@ -41,10 +42,9 @@ public class AnswerController {
             model.addAttribute("question", question);
             return "question_detail";
         }
-        Answer answer = this.answerService.create(question,
-                answerForm.getContent(), siteUser);
-        return String.format("redirect:/question/detail/%s#answer_%s",
-                answer.getQuestion().getId(), answer.getId());
+
+        Answer answer = this.answerService.create(question, answerForm.getContent(), siteUser);
+        return String.format("redirect:/question/detail/%s#answer_%s", answer.getQuestion().getId(), answer.getId());
     }
 
     @PreAuthorize("isAuthenticated()")

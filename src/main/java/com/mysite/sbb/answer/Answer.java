@@ -33,6 +33,7 @@ public class Answer {
 
     private LocalDateTime modifyDate;
 
+    // Set인 이유는 추천인은 중복이 안되기 떄문이다.
     @ManyToMany
     Set<SiteUser> voter;
 }
